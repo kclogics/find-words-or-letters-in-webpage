@@ -1,0 +1,152 @@
+
+
+
+
+
+<html>
+    <head>
+        <title>search</title>
+       
+         
+    </head>
+    <body>
+ <p id = "str">Find word or sentence,<em>case-sensitive!</em></p>
+<br>
+      
+        
+<form>
+    <input type="text" id="myText" placeholder="Enter word or sentence" autofocus>
+ 
+        
+    <input type="button" onclick="modified()" value="confirm">   
+    <button onclick="reloadpage()" id="confirm"> reload</button><br>
+  </form>      
+        
+        
+        
+
+        
+         <p id="demo1"> </p><br>
+<button onclick="theword()" id="searchButton"> Search </button>
+
+
+       
+        
+        
+        
+        
+   
+     
+
+
+        
+        
+        <p class="para"> I'm Krishna Chavali.</p>
+<p>    I  take great pride and passion
+
+to craft great web apps which people love using, <em> </em>a ui designer, <em> developer,</em>  web student <em> , seeker </em>   & always an explorer...</p>
+        
+        <p>Web developers are found working in various types of organizations, including large corporations and governments, small and medium - sized companies, or alone as freelancers. Some web developers work for one organization as a permanent full-time employee, while others may work as independent consultants, or as contractors for an employment agency. Web developers typically handle both server-side and front-end logic. This usually involves implementing all the visual elements that users see and use in the web application, as well as all the web services and APIs that are necessary to power the front-end..</p>
+        
+        
+        
+        <p>Full Stack Developer!
+
+Consider a player who can play forward, defense, midfield and some time play as goal keeper. An ideal Full Stack Developer knows each and every bit including hardware, front end, back end, servers,databases,project management and client coordination etc etc. Yes he will be full time player in any of the area we chose. So Full Stack developer will have a fair understanding of all systems and it may not be in all layers but operational level understanding.
+
+Over years, the Full Stack Developer will develop deep knowledge in the systems they work and refine to learn more. The more you work, the more you learn. Yes your experience is key and will help to upgrade new skills.
+
+Like Ian Peters-Campbell said, A Full Stack Developer is an “all-singing, all-dancing technical wizard.”
+
+Full Stack development could be started with online resources. Some popular online programs can be found on Udacity, Coursera, Thinkful, General Assembly, Lynda,Edx and much more. Start with basics and get touch with mentors. This will boost up your confidence and knowledge.</p>
+        
+        <style>
+            
+            
+            body {
+                background-color: skyblue;
+            }
+            
+            p {
+                font-size: 30px;
+            }
+        
+        .highlighted { 
+            background:white;
+            
+            
+            }
+        
+        
+        </style>
+        
+        <script>
+            
+            
+  
+    function reloadpage() {
+        window.open("search.html","_self");
+    }
+    
+     
+            
+            
+            function modified(){
+                 var x = document.getElementById("myText").value;
+ 
+                document.getElementById("demo1").innerHTML = x;
+                
+      
+      
+  }
+  
+   
+    
+    function theword() {
+         demo = document.getElementById('demo1');
+
+     str = demo.innerHTML;
+     res = str.toString();      
+        
+        highlightWord(document.body, res);
+       
+        
+        
+        
+        function highlightWord(root,word){
+  textNodesUnder(root).forEach(highlightWords);
+
+  function textNodesUnder(root){
+    var walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false),
+        text=[], node;
+    while(node=walk.nextNode()) text.push(node);
+    return text;
+  }
+    
+  function highlightWords(n){
+    for (var i; (i=n.nodeValue.indexOf(word,i)) > -1; n=after){
+      var after = n.splitText(i+word.length);
+      var highlighted = n.splitText(i);
+      var span = document.createElement('span');
+      span.className = 'highlighted';
+      span.appendChild(highlighted);
+      after.parentNode.insertBefore(span,after);
+    }
+  }
+}
+
+    }
+   
+
+
+    
+    </script>
+  
+    </body>
+
+
+
+
+</html>
+
+
